@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="header">
+      <h1 id="myh1">Welcome to my book store</h1>
+    </div>
+    <div class="contentarea">
+      <h2>Please select your book</h2>
+	   <button class="pointer" href="#" (click)="sortType('name')" [class.active]="sortBy==='name'">Click to sort</button>
+      <nav class="book-select">
+        <ul class="mybook">
+          <li *ngFor="let book of bookService.BOOKS | paginate: { itemsPerPage: 5, currentPage: p }; let i = index;">
+            <table>
+              <tr>
+              <a  [routerLink]="['/bookcomponent/bookDetailsComponent',book.id]"><td>{{ index_i(p,i) }}.</td><td>{{book.name}}</td></a>
+            </tr>
+            </table>
+          </li>
+        </ul>
+
+      </nav>
+    </div>
+
+  </div>
+</div>
+ <pagination-controls (pageChange)="p = $event"></pagination-controls>
+

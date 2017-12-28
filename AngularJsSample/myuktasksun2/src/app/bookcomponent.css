@@ -1,0 +1,48 @@
+.pointer{
+  border: none;
+    height: 30px;
+    width: 125px;
+    border-radius: 5px;
+    background-color: darkcyan;
+    color: white;
+    font-size: larger;
+}
+.header {
+  text-align: center;
+    background-color: #563d7c;
+    color: #fff;
+    height: 100px;
+    margin: -8px;
+    margin-top: -21px;
+ 
+}
+#myh1{
+  padding-top:20px;
+}
+.contentarea{
+  text-align:center;
+  padding-top:40px;
+}
+ul li {
+  font-size: 23px;
+    list-style-type: none;
+    padding: 14px;
+}
+
+.book-select {
+  width: 400px;
+  height: 360px;
+  background-color: lightblue;
+  margin-left: 687px;
+  border-radius: 15px;
+}
+.bookid{
+  float:left;
+}
+a{
+  text-decoration:none;
+
+}
+a:hover{
+  color:black;
+}

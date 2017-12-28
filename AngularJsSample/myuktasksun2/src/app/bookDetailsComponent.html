@@ -1,0 +1,39 @@
+
+ <table class="myformdiv">
+    <thead>
+      <tr>
+          <h2 style="text-align:center;margin-top:100px;">Details of the Book</h2>        
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Book Serial:</td>
+        <td><input  type="text" class="form-control" name="bookid"  [disabled]="!isDisabled" [(ngModel)]="cuurentBookinfo.id" ></td>
+        
+      </tr>
+      <tr>
+          <td>Book name:</td>
+          <td><input type="text" style="margin-top:5px;" class="form-control"  name="bookname"   [disabled]="!isDisabled" [(ngModel)]="cuurentBookinfo.name">
+          </td>
+      </tr>
+      <tr>
+        <td>Book author:</td>
+        <td><input type="text" style="margin-top:5px;" class="form-control" name="bookauth"  [disabled]="!isDisabled"  Bookdisabled [(ngModel)]="cuurentBookinfo.authors">
+        </td>
+      </tr>
+      <tr>
+          <td>Book pages:</td>
+          <td><input type="text" style="margin-top:5px;" class="form-control" name="bookpages"  [disabled]="!isDisabled" Bookdisabled [(ngModel)]="cuurentBookinfo.numberofpages">
+          </td>
+        </tr>
+        <tr>
+            <td>Book date:</td>
+            <td><input type="text" style="margin-top:5px;" class="form-control" name="bookdate"  [disabled]="!isDisabled" Bookdisabled [(ngModel)]="cuurentBookinfo.dateofpublication">
+            </td>
+          </tr>
+    </tbody>
+   <button type="submit" (click)="save()" class="btn">save</button>
+   <button type="submit" (click)="edit()" class="btn">edit</button>
+   <button type="submit" (click)="cancel()" class="btn">cancel</button>
+  </table>
+

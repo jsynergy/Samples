@@ -1,0 +1,22 @@
+
+.myformdiv{
+  margin-top: 70px;
+  margin-left: 448px;
+}
+.form-control{
+  height: 25px;
+    border: 2px solid palevioletred;
+    border-radius: 5px;
+    width: 196px;
+    padding: 3px;
+}
+#margintop10{
+  margin-top:10px;
+}
+.btn{
+  height: 30px;
+  width: 100px;
+  border: 1px solid darkred;
+  border-radius: 5px;
+  font-size: 20px;
+}
