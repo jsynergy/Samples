@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font: 13px Helvetica, Arial; }
+      #message_area { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+      
+      #message_area button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+      #messages { list-style-type: none; margin: 0; padding: 0; }
+      #messages li { padding: 5px 10px; }
+      #messages li:nth-child(odd) { background: #eee; }
+    </style>
+  </head>
+  <body>
+    <ul id="messages"></ul>
+    <div style="display:none;" id="message_area">
+      <input id="id" autocomplete="off" placeholder="To id" />
+      <input id="message" autocomplete="off" placeholder="Message" />
+      <button id='send_message'>Send</button>
+    </div>
+    
+    <div id="login_div">
+        <input id="login_id">
+        <a id="login" href="javascript:void(0);">Login</a>
+    </div>
+  </body>
+</html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+var socket = io("http://203.100.68.130:81/");
+
+$(function () {
+
+  var url      = window.location.href;     // Returns full URL
+  $('#send_message').click(function(){
+    
+    var send_data = {
+        "id":$("#id").val(),
+        "message": $("#message").val(),
+        "login_id": $("#login_id").val(),
+        "param": url,
+        "user_id":1274, 
+        "time":50, 
+        "score":50, 
+        "question_id":1, 
+        "opponent_id":1271, 
+        "challenge_id":175, 
+        "answer_id":3, 
+        "index":3
+    }
+
+    socket.emit('chat message', send_data);
+
+    $('#messages').append($('<li>').text("Self ==== "+$("#message").val()));
+
+    $("#id").val('');
+    $("#message").val('');
+
+    
+    return false;
+  });
+  socket.on('chat message', function(msg){
+    console.log(msg);
+    $('#messages').append($('<li>').text(msg['login_id']+" ==== "+msg['message']));
+  });
+});
+
+
+$("#login").click(function(){
+    socket.emit('add-user', {"id":$("#login_id").val()});
+    $("#login_div").hide();
+    $("#message_area").show();
+});
+</script>
