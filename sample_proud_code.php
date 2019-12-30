@@ -24,7 +24,7 @@ public function create_campaign($ajax = '') {
                 'ucm_show_tag' => '0',
                 'ucm_show_success_trek_speaking_video' => '1',
                 'ucm_speaking_video_autoplay' => '1'
-            );
+            ); 
             $campaign_data['ucm_color'] = $this->input->post('color');
             if ($this->input->post('home_page')) {
                 $campaign_data['ucm_home_page'] = '1';
